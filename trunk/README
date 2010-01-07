@@ -1,0 +1,46 @@
+
+= RCapture
+This package contains the module RCapture, a collection of intuitive methods to capture method invocations.
+
+RCapture has the following features
+- Capturing of instance and class methods of individual objects or entire population of objects.
+- Capturing pre or post method invocation.
+- Multiple capturings per method.
+- Modify method arguments and return values.
+- Filter method calls.
+- Developed with multithreaded environments in mind.
+and many more.
+
+= Simple Example
+The example below will capture insertion methods of arrays and output statistics upon 
+invocation. For more examples see RCapture module documentation.
+
+ require 'rcapture'
+ 
+ class Array
+  include RCapture::Interceptable
+ end
+ 
+ Array.capture_post :methods => [:<<, :push] do |cs|
+  puts "#{cs.args.first} was inserted to array #{cs.sender}"
+ end
+ 
+ [] << 1 << 2
+ [].push 3
+ 
+ #=> 1 was inserted to array [1]
+ #=> 2 was inserted to array [1, 2]
+ #=> 3 was inserted to array [3]
+ 
+= Requirements
+Non except Ruby. This distribution was tested on Ruby 1.8.6 and Ruby 1.9.1.
+ 
+= License
+RCapture is Copyright (c) 2010 Christoph Heindl. It is free software, and may be redistributed under the terms 
+specified in the {License}[link:files/License.html] file.
+
+= Support
+The RCapture homepage is http://code.google.com/p/cheind-blog-files. There you will find links report 
+{issues}[http://code.google.com/p/cheind-blog-files/issues/list] (use tag component-rcapture) and latest source code.
+You might find additional help on the author's homepage http://cheind.wordpress.com. For general questions contact the 
+author via email at {christoph.heindl@gmail.com}[mailto:christoph.heindl@gmail.com]
