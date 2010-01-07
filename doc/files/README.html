@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README [RDoc Documentation]</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }<\/style>" )
+
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>2010-01-07 14:20:40 +0100</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../classes/RCapture.html">RCapture</a></h1>
+<p>
+This package contains the module <a
+href="../classes/RCapture.html">RCapture</a>, a collection of intuitive
+methods to capture method invocations.
+</p>
+<p>
+<a href="../classes/RCapture.html">RCapture</a> has the following features
+</p>
+<ul>
+<li>Capturing of instance and class methods of individual objects or entire
+population of objects.
+
+</li>
+<li>Capturing pre or post method invocation.
+
+</li>
+<li>Multiple capturings per method.
+
+</li>
+<li>Modify method arguments and return values.
+
+</li>
+<li>Filter method calls.
+
+</li>
+<li>Developed with multithreaded environments in mind.
+
+</li>
+</ul>
+<p>
+and many more.
+</p>
+<h1>Simple Example</h1>
+<p>
+The example below will capture insertion methods of arrays and output
+statistics upon invocation. For more examples see <a
+href="../classes/RCapture.html">RCapture</a> module documentation.
+</p>
+<pre>
+ require 'rcapture'
+
+ class Array
+  include RCapture::Interceptable
+ end
+
+ Array.capture_post :methods =&gt; [:&lt;&lt;, :push] do |cs|
+  puts &quot;#{cs.args.first} was inserted to array #{cs.sender}&quot;
+ end
+
+ [] &lt;&lt; 1 &lt;&lt; 2
+ [].push 3
+
+ #=&gt; 1 was inserted to array [1]
+ #=&gt; 2 was inserted to array [1, 2]
+ #=&gt; 3 was inserted to array [3]
+</pre>
+<h1>Requirements</h1>
+<p>
+Non except Ruby. This distribution was tested on Ruby 1.8.6 and Ruby 1.9.1.
+</p>
+<h1><a href="License.html">License</a></h1>
+<p>
+<a href="../classes/RCapture.html">RCapture</a> is Copyright &#169; 2010
+Christoph Heindl. It is free software, and may be redistributed under the
+terms specified in the <a href="License.html">License</a> file.
+</p>
+<h1>Support</h1>
+<p>
+The <a href="../classes/RCapture.html">RCapture</a> homepage is <a
+href="http://code.google.com/p/cheind-blog-files">code.google.com/p/cheind-blog-files</a>.
+There you will find links report <a
+href="http://code.google.com/p/cheind-blog-files/issues/list">issues</a>
+(use tag component-rcapture) and latest source code. You might find
+additional help on the author&#8217;s homepage <a
+href="http://cheind.wordpress.com.">cheind.wordpress.com.</a> For general
+questions contact the author via email at <a
+href="mailto:christoph.heindl@gmail.com">christoph.heindl@gmail.com</a>
+</p>
+
+    </div>
+
+   </div>
+
+
+  </div>
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+    <!-- if method_list -->
+
+
+
+
+  </div>
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
