@@ -33,6 +33,6 @@ Rake::TestTask.new("benchmark") { |t|
 desc "Generate rdoc documentation"
 Rake::RDocTask.new do |rd|
   rd.main = 'README'
-  rd.rdoc_dir = "doc"
+  rd.rdoc_dir = "doc_tmp"
   rd.rdoc_files.include('README', 'License', 'rcapture/**/*.rb')
 end
