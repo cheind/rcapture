@@ -1,7 +1,7 @@
 #summary RCapture How-tos
 #labels Featured
 
-== Capturing Ruby on Rails controller methods ==
+== Capturing Ruby on Rails Controller Methods ==
 
 The following how-to was sent to me by Peter Vojtek:
 
